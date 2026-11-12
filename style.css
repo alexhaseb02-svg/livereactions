@@ -1,9 +1,10 @@
+/* Text på sidan */
 body {
   margin: 0;
   font-family: sans-serif;
 }
 
-/* The Pixi canvas sits behind the text */
+/* Texten ligger framför canvasen */
 canvas {
   position: fixed;
   top: 0;
@@ -11,6 +12,7 @@ canvas {
   z-index: -1;
 }
 
+/* Storlek och mellanrum */
 main {
   max-width: 40rem;
   padding: 2rem;

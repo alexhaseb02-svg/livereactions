@@ -1,4 +1,4 @@
-// Start Pixi and put its canvas on the page
+// Startar Pixi och skapar canvasen
 const app = new PIXI.Application();
 await app.init({ resizeTo: window, background: "#ffffff" });
 document.body.appendChild(app.canvas);
@@ -6,14 +6,14 @@ document.body.appendChild(app.canvas);
 const dots = new PIXI.Graphics();
 app.stage.addChild(dots);
 
-// Remember where the mouse is
+// Håller koll på musens plats
 const mouse = { x: 0, y: 0 };
 window.addEventListener("pointermove", (e) => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
 });
 
-// Every frame: a grid of dots that grow when the mouse is near
+// Prickarna blir större när musen är nära någon prick och mindre när den är längre bort.
 app.ticker.add(() => {
   dots.clear();
   for (let x = 0; x < app.screen.width; x += 30) {
