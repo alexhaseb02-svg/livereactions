@@ -1,0 +1,123 @@
+/* hela sidan */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f1117;  /* mörk bakgrund */
+  color: white;
+  text-align: center;
+}
+
+/* luft runt innehållet */
+.app {
+  padding: 40px 20px;
+}
+
+/* rubriken */
+h1 {
+  font-size: 38px;
+  margin: 0;
+}
+
+/* texten under rubriken */
+.subtitle {
+  color: #b8bcc8;
+}
+
+/* rutan runt kameran */
+.camera-box {
+  width: 640px;
+  max-width: 100%;
+  margin: 60px auto;  /* centrerar rutan, extra luft för ringlampan */
+  border-radius: 24px;  /* rundade hörn */
+  overflow: hidden;
+  background: black;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);  /* skugga */
+  transition: box-shadow 0.4s;  /* mjuk övergång när lampan slås av/på */
+}
+
+/* ringlampan: en vit ram + ett starkt vitt sken runt kameran
+   ljuset från skärmen lyser upp händerna när det är mörkt */
+.camera-box.light {
+  box-shadow:
+    0 0 0 18px white,                    /* den vita ringen */
+    0 0 80px 40px rgba(255,255,255,0.8); /* skenet runt ringen */
+}
+
+/* canvasen anpassar sig efter skärmen */
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* poängen */
+.score {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* rutorna med gesterna */
+.board {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* en ruta, visar ? tills man hittat gesten */
+.slot {
+  width: 56px;
+  height: 56px;
+  line-height: 56px;
+  font-size: 28px;
+  border-radius: 12px;
+  background: #1c1f2a;
+  color: #555b6e;
+  border: 2px dashed #555b6e;
+}
+
+/* när gesten är hittad */
+.slot.found {
+  background: white;
+  border: 3px solid black;
+  box-shadow: 4px 4px 0 black;
+  animation: pop 0.4s;
+}
+
+/* liten studs när en ruta öppnas */
+@keyframes pop {
+  0%   { transform: scale(0.5); }
+  70%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* knapparna */
+.buttons {
+  margin-top: 25px;
+}
+
+button {
+  background: white;
+  color: black;
+  border: 3px solid black;
+  border-radius: 12px;
+  padding: 12px 28px;
+  margin: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 4px 4px 0 black;  /* skugga snett bakom */
+  cursor: pointer;
+}
+
+/* knappen trycks ner när man klickar */
+button:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* ledtråden */
+.hint {
+  color: #b8bcc8;
+  font-style: italic;
+  min-height: 20px;
+}
