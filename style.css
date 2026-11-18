@@ -1,10 +1,12 @@
+
 /* Text på sidan */
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
+  color: white;
 }
 
-/* Texten ligger framför canvasen */
+/* Canvasen ligger bakom texten */
 canvas {
   position: fixed;
   top: 0;
@@ -12,8 +14,66 @@ canvas {
   z-index: -1;
 }
 
-/* Storlek och mellanrum */
+/* Sidans innehåll */
 main {
-  max-width: 40rem;
-  padding: 2rem;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #191d29;
+  border-radius: 15px;
+}
+
+/* Projektets namn */
+h1 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.names {
+  text-align: center;
+  color: #a5b4fc;
+}
+
+/* Rubriker och text */
+h2 {
+  margin-top: 35px;
+  color: #a5b4fc;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* Bilderna */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Videon */
+video {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Mindre skärmar */
+@media (max-width: 600px) {
+  main {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
 }
